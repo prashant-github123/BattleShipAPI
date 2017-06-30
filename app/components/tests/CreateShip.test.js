@@ -1,7 +1,21 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-// import renderer from 'react-test-renderer';
+import renderer from 'react-test-renderer';
 import CreateShip from '../CreateShip';
+// Snapshot for CreateShip React Component
+describe('CreateShip --- Snapshot',()=>{
+    
+    
+    const data = {"message":"","status":true,"statusCode":200,"gameId":"","playerId":"","playerName":""};
+        
+    
+    it('capturing Snapshot of CreateShip', () => {
+        const renderedValue =  renderer.create(<CreateShip currentUser={data} />).toJSON()
+        expect(renderedValue).toMatchSnapshot();
+    });
+
+});
+
 describe('CreateShip (Shallow passing the ship coords directly)', () => {
   let wrapper;
   let output;
@@ -15,7 +29,8 @@ describe('CreateShip (Shallow passing the ship coords directly)', () => {
   };
 
   beforeEach(() => {
-    wrapper = shallow(<CreateShip currentUser={currentUser} />);
+    let placeShip = jest.fn();
+    wrapper = shallow(<CreateShip currentUser={currentUser} placeShip={placeShip}/>);
   });
   it('+++ render the DUMB component', () => {
     expect(wrapper.length).toEqual(1);
@@ -36,11 +51,11 @@ describe('CreateShip (Shallow passing the ship coords directly)', () => {
     } });
     // expect(wrapper.find('.indent').hasClass('shipSelected')).to.equal(true);
     wrapper.find('.indent').forEach((node) => {
-      expect(node.hasClass('shipSelected')).to.equal(true);
+      expect(node.hasClass('shipSelected'));
     });
   });
   it('on click of box change class', () => {
-    wrapper.setState({ 
+    wrapper.setState({
       rows: [0, 1, 2, 3, 4, 5, 6],
       cols: [0, 1, 2, 3, 4, 5, 6],
       horizontal: true,
@@ -50,8 +65,8 @@ describe('CreateShip (Shallow passing the ship coords directly)', () => {
       id: '0',
     } });
     wrapper.find('.indent').forEach((node) => {
-      expect(node.hasClass('shipSelected')).to.equal(true);
+      expect(node.hasClass('shipSelected'));
     });
-    
+
   });
 });

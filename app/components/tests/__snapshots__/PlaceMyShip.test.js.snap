@@ -28,7 +28,7 @@ exports[`Place My Ship --- Snapshot capturing Snapshot of PlaceMyShip 1`] = `
         className="next-submit"
         onClick={[Function]}
       >
-         Next 
+         Next
       </button>
       <div
         className="ship shipUnselected"

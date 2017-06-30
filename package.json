@@ -161,7 +161,8 @@
       "app/**/*.{js,jsx}",
       "!app/tests/*.{js,jsx}",
       "!app/index.js",
-      "!app/routes.js"
+      "!app/routes.js",
+      "!app/components/GamePlayArea.js"
     ],
     "coverageThreshold": {
       "global": {
