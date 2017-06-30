@@ -31,7 +31,6 @@ public class ShipDomainUnitTests {
 		
 		if(newShip != null){
 			assertTrue(newShip.getShipID() > 0);
-			//assertTrue(newShip.getPlayerShipCoordinates().isEmpty());
 		}
 		else
 			assertFalse(true);		
