@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 class CreateShip extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +17,7 @@ class CreateShip extends Component {
   }
 
   componentWillMount() {
-    const {boardSize} = this.props.currentUser;
+    const { boardSize } = this.props.currentUser;
     const temp = [];
     for (let i = 0; i < boardSize; i++) {
       temp.push(i);
@@ -35,7 +35,7 @@ class CreateShip extends Component {
   }
   /* highlight cells user put the mouse*/
   mouseOver = (e) => {
-    const {horizontal, shipSize, rows, cols} = this.state;
+    const { horizontal, shipSize, rows, cols } = this.state;
     const val = (e.target.id).split('');
     this.setState({
       selectedRow: parseInt(val[0], 10),
@@ -43,14 +43,14 @@ class CreateShip extends Component {
     });
     if (horizontal) {
       if (parseInt(val[1], 10) <= (cols.length - shipSize)) {
-        this.setState({selectable: true});
+        this.setState({ selectable: true });
       } else {
-        this.setState({selectable: false});
+        this.setState({ selectable: false });
       }
     } else if (parseInt(val[0], 10) <= (rows.length - shipSize)) {
-      this.setState({selectable: true});
+      this.setState({ selectable: true });
     } else {
-      this.setState({selectable: false});
+      this.setState({ selectable: false });
     }
   };
 
@@ -62,7 +62,7 @@ class CreateShip extends Component {
   handleClick = (e) => {
     const val = parseInt(e.target.id, 10);
     const cods = [];
-    const {horizontal, selectable, shipSize} = this.state;
+    const { horizontal, selectable, shipSize } = this.state;
 
     if (horizontal && selectable) {
       for (let i = 0; i < shipSize; i += 1) {
@@ -86,16 +86,16 @@ class CreateShip extends Component {
    * Send the Co-ordinates to Micro Service
    */
   handleNextClick = () => {
-    const {currentUser, placeShip} = this.props;
-    const {selectedCods} = this.state;
-    console.log(selectedCods)
+    const { currentUser, placeShip } = this.props;
+    const { selectedCods } = this.state;
+    console.log(selectedCods);
     placeShip(currentUser, selectedCods);
   }
   /*
    * Vertical Ship Placement
    */
   verticalSelection = (row) => {
-    const {selectable, selectedRow, shipSize} = this.state;
+    const { selectable, selectedRow, shipSize } = this.state;
     if (selectable && ((row >= selectedRow) && (row <= (selectedRow + (shipSize - 1))))) {
       return 'shipSelected';
     } else if ((selectedRow <= row) && !selectable) {
@@ -107,7 +107,7 @@ class CreateShip extends Component {
    * Horizontal Ship Placement
    */
   horizontalSelection = (col) => {
-    const {selectable, selectedCol, shipSize} = this.state;
+    const { selectable, selectedCol, shipSize } = this.state;
     if (selectable && ((col >= selectedCol) && (col <= (selectedCol + (shipSize - 1))))) {
       return 'shipSelected';
     } else if ((selectedCol <= col) && !selectable) {
@@ -119,7 +119,7 @@ class CreateShip extends Component {
    * Create Cells
    */
   cellDivs = (row) => {
-    const {selectedRow, horizontal, selectedCol, shipSelected, shipSize, selectedCods, cols} = this.state;
+    const { selectedRow, horizontal, selectedCol, shipSelected, shipSize, selectedCods, cols } = this.state;
     let selectedTabs = '';
 
     if (row === selectedRow && horizontal && !shipSelected) {
@@ -188,12 +188,12 @@ class CreateShip extends Component {
 
 
   render() {
-    const {rows, shipSelected, horizontal} = this.state;
+    const { rows, shipSelected, horizontal } = this.state;
     const tabSelection = horizontal ? 'Horizontal' : 'Vertical';
     const shipColor = shipSelected ? 'shipSelected' : 'shipUnselected';
     return (
       <div className="App">
-        <div style={{textAlign: 'center'}}>
+        <div style={{ textAlign: 'center' }}>
           {
             rows.map((row) => (
               <div className={'row'} key={row}>

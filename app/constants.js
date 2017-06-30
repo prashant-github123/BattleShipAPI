@@ -16,6 +16,6 @@ export const STATUS = 'battleGame/USER/STATUS';
 
 export const ADD_NEW_USER_URI = 'http://10.150.188.108:8180/battleship/rest/api/addPlayer';
 export const PLACE_SHIP_URI = 'http://10.150.188.108:8180/battleship/rest/api/placeShip';
-export const RETRIVE_SHIP_LOC_URI = 'http://10.150.188.108:8180/battleship/rest/api/retrieveShipLocations';
+export const RETRIVE_SHIP_LOC_URI = 'http://10.150.188.108:8180/battleship/rest/api/retrievePlayerDetails/';
 export const CHECK_TURN_URI = 'http://10.150.188.108:8180/battleship/rest/api/checkTurnStatus';
 export const HIT_OPP_SHIP = 'http://10.150.188.108:8180/battleship/rest/api/hitOpponentShip';

@@ -21,7 +21,7 @@ class GamePlayArea extends Component {
       enablePlayerII: false,
       myTurn: false,
       currentPlayer: null,
-      userturn: 'waiting for oponent',
+      userturn: 'waiting for opponent',
       gameStarted: false,
     };
     this.retriveShipData = this.retriveShipData.bind(this);
@@ -38,7 +38,7 @@ class GamePlayArea extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { shipLocation } = nextProps.data.shipLocation;
-    if (shipLocation.length === 2 && !this.state.gameStarted) {
+    if (shipLocation.length === 2) {
       this.setState({
         response: shipLocation,
         gameStarted: true,
@@ -78,10 +78,9 @@ class GamePlayArea extends Component {
     const currentPlayer = this.getCurrentPlayer(res, currentUser.playerID);
     const oponent = this.getOponent(res, currentUser.playerID);
     const myTurn = currentPlayer[0].playerID > oponent[0].playerID;
-    if (oponent[0].ship && oponent[0].ship.playerShipCoordinates) {
+    if (oponent[0].ship != null) {
       this.setState({
         enablePlayerII: true,
-        hitCods: oponent[0].ship.playerShipCoordinates,
         oponent: oponent[0],
         myTurn,
         userturn: myTurn ? 'your turn' : 'oponent turn',
@@ -134,13 +133,31 @@ class GamePlayArea extends Component {
     this.postShipHit(data, gameOver);
   }
 
-  postShipHit(data, gameOver) {
-    axios.post('http://10.150.188.82:8080/battleship/rest/api/hitOpponentShip', data).then((res) => {
+  postShipHit(data) {
+    axios.post('http://10.150.188.108:8180/battleship/rest/api/hitOpponentShip', data).then((res) => {
+      console.log(res.data.opponentHitCoordinates);
+      const oponentHitcords = res.data.opponentHitCoordinates;
+      const opoHitcords = oponentHitcords !== '' ? oponentHitcords.split(',') : [];
+      const oponentMisscords = res.data.opponentMissCoordinates;
+      const opoMisscords = oponentMisscords != '' ? oponentMisscords.split(',') : [];
+
+      if (opoHitcords.length) {
+        opoHitcords.map((cord, i) => {
+          console.log(cord);
+          document.getElementById(cord).className += 'indent hitClass';
+        });
+      }
+      if (opoMisscords.length) {
+        opoMisscords.map((cord, i) => {
+          console.log(cord);
+          document.getElementById(cord).className += 'indent missClass';
+        });
+      }
       this.setState({
         myTurn: false,
-        winner: gameOver ? 'you win' : '',
+        gameOver: res.data.gameOver,
       });
-      if (!gameOver) {
+      if (!res.data.gameOver) {
         this.retriveTurnStatus();
       }
     });
@@ -151,12 +168,11 @@ class GamePlayArea extends Component {
    * @param data : object set from retriveTurnStatus/updateMyHitStatus
    */
   checkTurnAsync(data) {
-    axios.post('http://10.150.188.82:8080/battleship/rest/api/checkTurnStatus', data).then((res) => {
+    axios.post('http://10.150.188.108:8180/battleship/rest/api/checkTurnStatus', data).then((res) => {
       this.setState({
         myTurn: res.data.turnStatus,
-        userturn: res.data.turnStatus ? 'your turn' : 'oponent turn',
+        userturn: res.data.turnStatus ? 'your turn' : 'opponent turn',
         gameOver: res.data.gameOver,
-        winner: res.data.gameOver ? 'oponent win' : '',
       });
       if (!res.data.turnStatus && !res.data.gameOver) {
         setTimeout(() => {
@@ -170,48 +186,39 @@ class GamePlayArea extends Component {
 
   /* Update my ship hit status*/
   updateMyHitStatus(res) {
-    const restCords = res.coordinates;
-    const cords = sessionStorage.getItem('cords');
-    restCords.map((arr, index) => {
-      if (arr.indexOf(cords) !== -1) {
-        document.getElementById(`${arr}-r`).className = 'indent hitMeClass';
-      } else {
-        document.getElementById(`${arr}-r`).className = 'indent missMeClass';
-      }
-    });
+    let myHitcords = res.myHitCoordinates;
+    myHitcords = myHitcords !== '' ? myHitcords.split(',') : [];
+
+    let myMisscords = res.myMissCoordinates;
+    myMisscords = myMisscords !== '' ? myMisscords.split(',') : [];
+
+    if (myHitcords.length) {
+      myHitcords.map((cord) => {
+        console.log('hit', cord);
+        document.getElementById(`${cord}-r`).className = 'indent hitClass';
+      });
+    }
+    if (myMisscords.length) {
+      console.log('myMisscords', myMisscords);
+      myMisscords.map((cord) => {
+        console.log('miss', cord);
+        document.getElementById(`${cord}-r`).className = 'indent missClass';
+      });
+    }
+    if (res.gameOver) {
+      this.setState({
+        myTurn: true,
+      });
+    }
   }
 
 
   /* handle cell Click */
   handleClick = (e) => {
     // load data from state
-    const { hitCods, shipSize, myTurn } = this.state;
     const target = e.target;
-    if (!myTurn) return false;
-
-    const val = parseInt(target.id, 10);
-    let gameOver = false;
-    // iterate through the coordinates retrived by retrive Ship Info
-    if (val >= hitCods[0] && val <= hitCods[shipSize - 1]) {
-      e.currentTarget.className += 'hitClass '; // add class if the target is being hit
-      const hitElements = document.getElementsByClassName('indent  hitClass'); // retrive hit cells
-      if (hitElements.length === 3) {  // check count  for game status
-        gameOver = true;
-        this.setState({
-          gameOver: true,
-        });
-      }
-    } else {
-      // miss.push(val);
-      gameOver = false;
-      this.setState({
-        gameOver: false,
-      });
-      e.currentTarget.className += 'missClass ';
-    }
-    e.currentTarget.dataClicked = true;
-    // trigger ajax to post the hit staus
-    this.postHitStatus(e.target.id, gameOver);
+    if (!this.state.myTurn) return false;
+    this.postHitStatus(target.id);
   }
 
 

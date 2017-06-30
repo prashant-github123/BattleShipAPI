@@ -10,8 +10,8 @@ export default class GameTable extends Component {
     this.cellDivs = this.cellDivs.bind(this);
   }
 
-  handleClick() {
-    this.props.handleClick();
+  handleClick(e) {
+    this.props.handleClick(e);
   }
 
   cellDivs(row, idx) {
@@ -33,7 +33,7 @@ export default class GameTable extends Component {
           />);
 
         const element = (idx === 'l') ? playerII
-          : <div className="indent" id={`${row}${col}-${idx}`} key={`${row}${col}`}/>;
+          : <div className="indent" id={`${row}${col}-${idx}`} key={`${row}${col}`} />;
 
         return element;
       })
