@@ -1,9 +1,8 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import PlaceMyShip from './../PlaceMyShip';
 
-// Snapshot for SignUpForm React Component
+// Snapshot for PlaceMyShip React Component
 describe('Place My Ship --- Snapshot',()=>{
     const placeShip = {};
     beforeEach(()=>{

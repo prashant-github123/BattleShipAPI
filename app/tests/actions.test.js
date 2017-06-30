@@ -17,7 +17,8 @@ import {
   setHitorTurnStatus,
   placeShip,
   retriveShipLocation,
-    checkMyTurnStatus
+    checkMyTurnStatus,
+    setTurnStatus
 } from '../actions';
 
 describe('Default Actions', () => {
@@ -111,7 +112,7 @@ describe('Default Actions', () => {
         data: data,
       };
 
-      expect(setHitorTurnStatus(data)).toEqual(expectedResult);
+      expect(setTurnStatus(data)).toEqual(expectedResult);
     });
   });
   describe('To Place a Ship', () => {
