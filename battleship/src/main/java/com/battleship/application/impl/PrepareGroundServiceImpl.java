@@ -1,6 +1,5 @@
 package com.battleship.application.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -69,7 +68,6 @@ public class PrepareGroundServiceImpl implements PrepareGroundService {
 				Ship ship = new Ship();
 				Board board = battleShipBoardRepository.getBoardByID(player.getBoardId());
 				board.setShipPositionCoordinateList(genericUtil.convertToListOfArrayIntegers(shipCoordinates));
-				System.out.println("List of ship coor::" + board.getShipPositionCoordinateList());
 				player.setShip(ship);
 				return player;
 			}

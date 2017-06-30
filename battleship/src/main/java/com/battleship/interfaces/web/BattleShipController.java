@@ -89,16 +89,17 @@ public class BattleShipController {
 	 */
 	@RequestMapping(value = "/addPlayer", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@CrossOrigin
-	public ResponseEntity<?> registerPlayer(@Valid @RequestBody NewPlayerRequestDTO newPlayerRequest, Errors errors) {
+	public ResponseEntity<RegisterNewPlayerResponseDTO> registerPlayer(@Valid @RequestBody NewPlayerRequestDTO newPlayerRequest, Errors errors) {
 
 		logger.debug("[BattleShipRegistrationController.registerPlayer()] : registerPlayer Service called");
-
+		RegisterNewPlayerResponseDTO registerNewPlayerResponseDTO = new RegisterNewPlayerResponseDTO();
+		
 		if (errors.hasErrors()) {
 			logger.debug("[BattleShipRegistrationController.registerPlayer()] : There are validation errors > " + errors);
-			return ResponseEntity.badRequest().body(util.getValidationErrors(errors));
+			registerNewPlayerResponseDTO.setMessage(util.getValidationErrors(errors).toString());
+			return ResponseEntity.badRequest().body(registerNewPlayerResponseDTO);
 		}
-
-		RegisterNewPlayerResponseDTO registerNewPlayerResponseDTO = new RegisterNewPlayerResponseDTO();
+		
 		try {
 			RegisterNewPlayerDTO registerNewPlayerDTO = registrationService.registerNewPlayer(newPlayerRequest.getPlayerName());
 			if (null != registerNewPlayerDTO)
@@ -106,7 +107,8 @@ public class BattleShipController {
 			return ResponseEntity.ok(registerNewPlayerResponseDTO);
 
 		} catch (GameInitiationException | InvalidPlayerException | NoGameAvailableException | IllegalAccessException | InvocationTargetException e) {
-			return ResponseEntity.badRequest().body(e.getMessage());
+			registerNewPlayerResponseDTO.setMessage(e.getMessage());
+			return ResponseEntity.badRequest().body(registerNewPlayerResponseDTO);
 		}
 	}
 	
@@ -189,17 +191,18 @@ public class BattleShipController {
 	 */
 	@RequestMapping(value = "/checkTurnStatus", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@CrossOrigin
-	public ResponseEntity<?> checkTurnStatus(@Valid @RequestBody CheckTurnStatusRequestDTO checkTurnStatusRequest, Errors errors) {
+	public ResponseEntity<CheckTurnStatusResponseDTO> checkTurnStatus(@Valid @RequestBody CheckTurnStatusRequestDTO checkTurnStatusRequest, Errors errors) {
 
 		logger.debug("[BattleShipController.checkTurnStatus()] : The Game Id Passed Is {0}:", checkTurnStatusRequest.getGameId());
 		logger.debug("[BattleShipController.checkTurnStatus()] : The Player Id Passed Is {0}:", checkTurnStatusRequest.getPlayerId());
 
+		CheckTurnStatusResponseDTO checkTurnStatusResponseDTO = new CheckTurnStatusResponseDTO();
 		if (errors.hasErrors()) {
 			logger.debug("[BattleShipController.retrieveShipLocations()] : There are validation errors > " + errors);
-			return ResponseEntity.badRequest().body(util.getValidationErrors(errors));
+			checkTurnStatusResponseDTO.setMessage(util.getValidationErrors(errors).toString());
+			return ResponseEntity.badRequest().body(checkTurnStatusResponseDTO);
 		}
 
-		CheckTurnStatusResponseDTO checkTurnStatusResponseDTO = new CheckTurnStatusResponseDTO();
 		try {
 			TurnStatusDTO turnStatusDTO = playGameService.checkPlayersTurnOrGameOverStatus(
 					Integer.parseInt(checkTurnStatusRequest.getGameId()), Integer.parseInt(checkTurnStatusRequest.getPlayerId()));
@@ -209,7 +212,8 @@ public class BattleShipController {
 			logger.debug("[BattleShipController.checkTurnStatus()] : Response is :", checkTurnStatusResponseDTO);
 			
 		} catch (NumberFormatException | NoGameAvailableException | IllegalAccessException | InvocationTargetException | NoBoardAvailableException e) {
-			return ResponseEntity.badRequest().body(e.getMessage());
+			checkTurnStatusResponseDTO.setMessage(e.getMessage());
+			return ResponseEntity.badRequest().body(checkTurnStatusResponseDTO);
 		}
 		return ResponseEntity.ok(checkTurnStatusResponseDTO);
 	}
@@ -224,7 +228,7 @@ public class BattleShipController {
 	 */
 	@RequestMapping(value = "/hitOpponentShip", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@CrossOrigin
-	public ResponseEntity<?> hitOpponentShipEventUpdate(@Valid @RequestBody HitOpponentShipUpdateRequestDTO hitOpponentShipUpdateRequest, Errors errors) {
+	public ResponseEntity<HitOpponentShipUpdateResponseDTO> hitOpponentShipEventUpdate(@Valid @RequestBody HitOpponentShipUpdateRequestDTO hitOpponentShipUpdateRequest, Errors errors) {
 
 		logger.debug("[BattleShipController.hitOpponentShipUpdate()] : The Game Id Passed Is {0}:", hitOpponentShipUpdateRequest.getGameId());
 		logger.debug("[BattleShipController.hitOpponentShipUpdate()] : The Player Id Passed Is {0}:", hitOpponentShipUpdateRequest.getPlayerId());
@@ -233,7 +237,8 @@ public class BattleShipController {
 		
 		if (errors.hasErrors()) {
 			logger.debug("[BattleShipController.retrieveShipLocations()] : There are validation errors > " + errors);
-			return ResponseEntity.badRequest().body(util.getValidationErrors(errors));
+			hitOpponentShipUpdateResponseDTO.setMessage(util.getValidationErrors(errors).toString());
+			return ResponseEntity.badRequest().body(hitOpponentShipUpdateResponseDTO);
 		}
 		
 		try {
@@ -245,7 +250,8 @@ public class BattleShipController {
 				return ResponseEntity.ok(hitOpponentShipUpdateResponseDTO);
 			}
 		} catch (NumberFormatException  | IllegalAccessException | InvocationTargetException | NoGameAvailableException | NoBoardAvailableException e) {
-			return ResponseEntity.badRequest().body(e.getMessage());
+			hitOpponentShipUpdateResponseDTO.setMessage(e.getMessage());
+			return ResponseEntity.badRequest().body(hitOpponentShipUpdateResponseDTO);
 		}
 		return ResponseEntity.badRequest().body(hitOpponentShipUpdateResponseDTO);
 	}

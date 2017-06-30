@@ -1,8 +1,5 @@
 package com.battleship.tests;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,9 +11,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.battleship.BattleshipApplication;
 import com.battleship.application.impl.RegistrationServiceImpl;
-import com.battleship.domain.model.game.Game;
-import com.battleship.domain.model.handling.GameInitiationException;
-import com.battleship.domain.model.handling.NoGameAvailableException;
 import com.battleship.infrastructure.BattleShipGameRepository;
 import com.battleship.infrastructure.impl.BattleShipGameRepositoryImpl;
 
@@ -65,9 +59,5 @@ public class RegistrationServiceUnitTests {
 	public void testSubsequentGameCreation() {
 		//TODO
 	}
-	
-	
-	
-	
 	
 }

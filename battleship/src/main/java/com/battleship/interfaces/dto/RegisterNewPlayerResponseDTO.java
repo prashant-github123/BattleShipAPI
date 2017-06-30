@@ -7,7 +7,7 @@ package com.battleship.interfaces.dto;
  * @author amall3
  *
  */
-public class RegisterNewPlayerResponseDTO {
+public class RegisterNewPlayerResponseDTO extends ResponseDTO{
 
 	private int playerID;
 
