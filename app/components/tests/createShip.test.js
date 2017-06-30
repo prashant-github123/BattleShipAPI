@@ -41,7 +41,7 @@ describe('CreateShip (Shallow passing the ship coords directly)', () => {
     });
   });
   it('on click of box change class', () => {
-    wrapper.setState({
+    wrapper.setState({ 
       rows: [0, 1, 2, 3, 4, 5, 6],
       cols: [0, 1, 2, 3, 4, 5, 6],
       horizontal: true,
