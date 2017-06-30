@@ -1,0 +1,449 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`placeShip --- Snapshot capturing Snapshot of placeShip 1`] = `
+<div
+  className="App"
+>
+  <div
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="indent "
+        id="00"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="01"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="02"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="03"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="04"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="05"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="06"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="indent "
+        id="10"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="11"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="12"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="13"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="14"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="15"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="16"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="indent "
+        id="20"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="21"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="22"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="23"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="24"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="25"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="26"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="indent "
+        id="30"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="31"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="32"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="33"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="34"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="35"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="36"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="indent "
+        id="40"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="41"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="42"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="43"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="44"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="45"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="46"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="indent "
+        id="50"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="51"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="52"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="53"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="54"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="55"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="56"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="indent "
+        id="60"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="61"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="62"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="63"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="64"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="65"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+      <div
+        className="indent "
+        id="66"
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseOver={[Function]}
+        role="presentation"
+      />
+    </div>
+    <button
+      className="next-submit"
+      onClick={[Function]}
+    >
+       Next 
+    </button>
+    <div
+      className="ship shipUnselected"
+      onClick={[Function]}
+      role="presentation"
+    >
+      Horizontal
+    </div>
+  </div>
+</div>
+`;
