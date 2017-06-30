@@ -7,15 +7,15 @@ import {
     ADD_NEW_USER_URI,
     PLACE_SHIP_URI,
     RETRIVE_SHIP_LOC_URI,
-    CHECK_TURN_URI
+    CHECK_TURN_URI,
  } from './constants';
-import {browserHistory} from 'react-router';
+import { browserHistory } from 'react-router';
 
 export const addPlayerAPI = (playerName) => { // eslint-disable-line
   console.log(playerName);
   const data = {
-    playerName: playerName,
-  }
+    playerName,
+  };
   return request({
     method: 'POST',
     url: ADD_NEW_USER_URI,
@@ -25,8 +25,8 @@ export const addPlayerAPI = (playerName) => { // eslint-disable-line
 
 export const retrieveShipLocationsAPI = (gameId) => { // eslint-disable-line
   const data = {
-    gameId : gameId,
-  }
+    gameId,
+  };
   return request({
     method: 'POST',
     url: RETRIVE_SHIP_LOC_URI,
@@ -58,12 +58,10 @@ export const checkTurnStatusAPI = (gamedata) => {
   });
 };
 
-export const setCurrentUser = (data) => {
-  return {
-    type: ADD_PLAYER,
-    data,
-  };
-};
+export const setCurrentUser = (data) => ({
+  type: ADD_PLAYER,
+  data,
+});
 
 export const setShipCoordinates = (data) => { // eslint-disable-line
   return {
@@ -126,7 +124,7 @@ export const retriveShipLocation = (gameId) => {// eslint-disable-line
       dispatch(setShipLocation(response.data));
       return response.data;
     }).catch((err) => {
-      console.log("Error", err);
+      console.log('Error', err);
     });
   };
 };
@@ -136,15 +134,13 @@ export const retriveShipLocation = (gameId) => {// eslint-disable-line
 */
 export const checkMyTurnStatus = (data) => { // eslint-disable-line
 
-  return checkTurnStatusAPI(data).then((response) => {
-    return response.data;
-  }).catch((err) => {
-    console.log("Error", err);
+  return checkTurnStatusAPI(data).then((response) => response.data).catch((err) => {
+    console.log('Error', err);
   });
 };
 
-/*Start New Game*/
+/* Start New Game*/
 export const startNew = () => {
   sessionStorage.clear();
   browserHistory.push('/');
-}
+};

@@ -42,16 +42,14 @@ export default class GameTable extends Component {
     return (
       <div>
         {
-          rows.map((row) => {
-            return (
-              <div>
-                <div className="row" key={row}>
-                  {this.cellDivs(row, keyMap)}
-                </div>
-
+          rows.map((row) => (
+            <div>
+              <div className="row" key={row}>
+                {this.cellDivs(row, keyMap)}
               </div>
-            );
-          })
+
+            </div>
+            ))
         }
       </div>
     );
@@ -64,4 +62,4 @@ GameTable.propTypes = {
   rows: PropTypes.array,
   keyMap: PropTypes.string,
   handleClick: PropTypes.func,
-}
+};

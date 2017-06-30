@@ -17,7 +17,7 @@ import {
   setHitorTurnStatus,
   placeShip,
   retriveShipLocation,
-    checkMyTurnStatus
+    checkMyTurnStatus,
 } from '../actions';
 
 describe('Default Actions', () => {
@@ -52,15 +52,15 @@ describe('Default Actions', () => {
 
     expect(setCurrentUser(fixture)).toEqual(expectedResult);
   });
-  describe('Retriving Ship location API' , () => {
+  describe('Retriving Ship location API', () => {
     it('should return a function', () => {
       const url = '',
-            gameId = '';
-      const result = retrieveShipLocationsAPI(url , gameId);
+        gameId = '';
+      const result = retrieveShipLocationsAPI(url, gameId);
       expect(result).toBeDefined();
     });
   });
-  describe('Place Ship location API' , () => {
+  describe('Place Ship location API', () => {
     it('should return a function', () => {
       const data = {
         shipCoordinates: '',
@@ -69,15 +69,15 @@ describe('Default Actions', () => {
         playerName: '',
       };
       const url = '';
-      const result = placeShipAPI(url ,data);
+      const result = placeShipAPI(url, data);
       expect(result).toBeDefined();
     });
   });
-  describe('Check turn status API' , () => {
+  describe('Check turn status API', () => {
     it('should return a function', () => {
       const data = '';
       const url = '';
-      const result = checkTurnStatusAPI(url ,data);
+      const result = checkTurnStatusAPI(url, data);
       expect(result).toBeDefined();
     });
   });
@@ -86,7 +86,7 @@ describe('Default Actions', () => {
       const data = '';
       const expectedResult = {
         type: SHIP_COORDS,
-        data: data,
+        data,
       };
 
       expect(setShipCoordinates(data)).toEqual(expectedResult);
@@ -97,7 +97,7 @@ describe('Default Actions', () => {
       const data = '';
       const expectedResult = {
         type: SHIP_LOCATION,
-        data: data,
+        data,
       };
 
       expect(setShipLocation(data)).toEqual(expectedResult);
@@ -108,7 +108,7 @@ describe('Default Actions', () => {
       const data = '';
       const expectedResult = {
         type: STATUS,
-        data: data,
+        data,
       };
 
       expect(setHitorTurnStatus(data)).toEqual(expectedResult);
@@ -132,14 +132,14 @@ describe('Default Actions', () => {
   describe('To Check Turn Status', () => {
     it('should return function', () => {
       const data = {
-          gameId: "",
-          playerId: "",
-          playerName: "",
-          hitOrMiss: true,
-          gameOver: false,
-          checkTurnStatusOnly: false,
-          hitCoordinate: "",
-      }
+        gameId: '',
+        playerId: '',
+        playerName: '',
+        hitOrMiss: true,
+        gameOver: false,
+        checkTurnStatusOnly: false,
+        hitCoordinate: '',
+      };
       const result = checkMyTurnStatus(data);
       expect(result).toBeDefined();
     });

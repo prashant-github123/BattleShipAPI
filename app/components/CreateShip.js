@@ -21,14 +21,14 @@ class CreateShip extends Component {
     });
   }
   componentWillMount() {
-    const {boardSize} = this.props.currentUser;
-    let temp=[];
-    for(let i=0; i<boardSize; i++){
-      temp.push(i)
+    const { boardSize } = this.props.currentUser;
+    const temp = [];
+    for (let i = 0; i < boardSize; i++) {
+      temp.push(i);
     }
     this.setState({
       rows: temp,
-      cols: temp
+      cols: temp,
     });
   }
   /* highlight cells user put the mouse*/

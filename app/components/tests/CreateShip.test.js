@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 // import renderer from 'react-test-renderer';
-import CreateShip from '../components/CreateShip';
+import CreateShip from '../CreateShip';
 describe('CreateShip (Shallow passing the ship coords directly)', () => {
   let wrapper;
   let output;
