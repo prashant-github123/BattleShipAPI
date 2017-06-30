@@ -6,6 +6,8 @@ package com.battleship.domain.model.board;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.battleship.domain.model.handling.DomainConstants;
+
 /**
  * @author amall3
  *
@@ -29,8 +31,8 @@ public class Board {
 	public Board() {
 		super();
 		this.setBoardID(autoIncrementBoardID++);
-		this.boardSize = new int[7][7];
-		this.hitCoordinateList = new ArrayList<int[][]>(3);
+		this.boardSize = new int[DomainConstants.DEFAULT_BOARD_SIZE][DomainConstants.DEFAULT_BOARD_SIZE];
+		this.hitCoordinateList = new ArrayList<int[][]>(DomainConstants.DEFAULT_SHIP_SIZE);
 		this.missCoordinateList = new ArrayList<int[][]>();
 	}
 

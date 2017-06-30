@@ -22,6 +22,16 @@ public class DomainConstants {
 
 	public static final String NO_BOARD_AVAILABLE = "This board id does not exists in the Repository.";
 
+	/**
+	 * This can be moved to configurations.
+	 */
+	public static final int DEFAULT_SHIP_SIZE = 3;
+
+	/**
+	 * This can be moved to configurations.
+	 */
+	public static final int DEFAULT_BOARD_SIZE = 7;
+
 	private DomainConstants() {
 	}
 
