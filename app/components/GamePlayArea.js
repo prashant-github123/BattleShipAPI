@@ -54,6 +54,7 @@ class GamePlayArea extends Component {
     }
     return true;
   }
+
   /*
    * Get Current Player Name
    * @param response:  response from retrive ship data
@@ -62,6 +63,7 @@ class GamePlayArea extends Component {
   getCurrentPlayer(response, id) {
     return response.filter((player) => player.playerID === id);
   }
+
   /*
    * Get Oponent Player Name
    * @param response:  response from retrive ship data
@@ -143,6 +145,7 @@ class GamePlayArea extends Component {
       }
     });
   }
+
   /*
    * Async call to check turn status
    * @param data : object set from retriveTurnStatus/updateMyHitStatus
@@ -214,19 +217,19 @@ class GamePlayArea extends Component {
 
   render() {
     const { gameOver, oponent, userturn, winner } = this.state;
-    const currentplayer = 'My';
-    const oponentplayer = (typeof oponent !== 'undefined' && oponent !== null) ? oponent.playerName : 'Waiting for Oponent';
+    const currentPlayer = 'My';
+    const oponentPlayer = (typeof oponent !== 'undefined' && oponent !== null) ? oponent.playerName : 'Waiting for Oponent';
     return (
       <div>
         {!gameOver && <div className="bubble">{userturn}</div>}
         <div className="battle-players">
           {gameOver && <GameoverModal winner={winner} {...this.props} />}
           <div className="second-player float-left">
-            <div style={{ textAlign: 'center' }} >{currentplayer} Ship</div>
+            <div style={{ textAlign: 'center' }}>{currentPlayer} Ship</div>
             <GameTable {...this.state} keyMap="r" handleClick={this.handleClick} />
           </div>
           <div className="third-class float-left">
-            <div style={{ textAlign: 'center' }} id="curp">{oponentplayer} Ship</div>
+            <div style={{ textAlign: 'center' }} id="curp">{oponentPlayer} Ship</div>
             <GameTable {...this.state} keyMap="l" handleClick={this.handleClick} />
           </div>
         </div>

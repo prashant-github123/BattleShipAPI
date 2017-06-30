@@ -2,14 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import SignUpComponent from '../GameSignUp';
-import {addPlayer} from './../../actions';
+import { addPlayer } from './../../actions';
 // Snapshot for SignUpForm React Component
-describe('GameSignUp --- Snapshot',()=>{
-    it('capturing Snapshot of GameSignUp', () => {
-        const renderedValue =  renderer.create(<SignUpComponent addPlayer={addPlayer}/>).toJSON()
-        expect(renderedValue).toMatchSnapshot();
-    });
-
+describe('GameSignUp --- Snapshot', () => {
+  it('capturing Snapshot of GameSignUp', () => {
+    const renderedValue = renderer.create(<SignUpComponent addPlayer={addPlayer} />).toJSON();
+    expect(renderedValue).toMatchSnapshot();
+  });
 });
 
 describe('Game signup test', () => {

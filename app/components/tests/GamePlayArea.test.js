@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import GamePlayArea from './../GamePlayArea';
-import {retriveShipLocation } from './../../actions';
+import { retriveShipLocation } from './../../actions';
 
 // Snapshot for GamePlayArea React Component
 describe('GamePlayArea --- Snapshot',()=>{
