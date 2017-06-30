@@ -30,8 +30,7 @@ public class ShipDomainUnitTests {
 	public void testShipCreation() {
 		
 		if(newShip != null){
-			assertTrue(newShip.getShipID() > 0);
-			//assertTrue(newShip.getPlayerShipCoordinates().isEmpty());
+			assertTrue(newShip.getShipID() > 0);			
 		}
 		else
 			assertFalse(true);		
