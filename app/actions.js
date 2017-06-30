@@ -119,6 +119,7 @@ export const placeShip = (playerData, cords) => { // eslint-disable-line
 * @param : gameId
 */
 export const retriveShipLocation = (gameId) => {// eslint-disable-line
+  console.log(gameId);
   return function (dispatch) {
     retrieveShipLocationsAPI(gameId).then((response) => {
       dispatch(setShipLocation(response.data));
