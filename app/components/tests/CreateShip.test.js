@@ -2,7 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 // import renderer from 'react-test-renderer';
 import CreateShip from '../CreateShip';
+<<<<<<< HEAD:app/components/tests/createShip.test.js
 // import {retriveShipLocation } from './../actions';
+=======
+>>>>>>> 02454171df59ca9c115a0e5c4bf94771a2ea5e93:app/components/tests/CreateShip.test.js
 describe('CreateShip (Shallow passing the ship coords directly)', () => {
   let wrapper;
   let output;
